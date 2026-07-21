@@ -19,9 +19,9 @@ export function SiteHeader() {
           <Image
             src="/kunist-logo.png"
             alt="KUNIST 로고"
-            width={266}
-            height={76}
-            className="h-14 w-auto sm:h-16"
+            width={340}
+            height={96}
+            className="h-20 w-auto sm:h-24"
             priority
           />
         </Link>
