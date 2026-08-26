@@ -1,59 +1,80 @@
 import type { Metadata } from 'next'
-import { FileText, Award, Users, UserPlus, Flag, Target } from 'lucide-react'
+import { FileText, Award, Users, GraduationCap, Flag, Target, CalendarClock } from 'lucide-react'
 import { PageHeader } from '@/components/page-header'
 import { AnimatedCounter } from '@/components/animated-counter'
-import { ProgressBar } from '@/components/progress-bar'
 
 export const metadata: Metadata = {
-  title: '성과 | K-MediST',
+  title: '성과 목표 | K-MediST',
   description:
-    'K-MediST 사업단의 성과지표 로드맵, 연차별 추진현황, 논문·특허 실적, 참여인력 현황을 확인하세요.',
+    'K-MediST 사업단이 2026~2030년 5개년에 걸쳐 달성해 나갈 목표 지표와 단계별·연차별 추진 계획을 안내합니다.',
 }
+
+// 아래 수치는 모두 연구개발계획서상 "5개년 최종 목표"이며, 실제 달성 실적이 아닙니다.
+// 사업 진행에 따라 실제 달성 현황으로 점진적으로 교체해주세요.
+const GOALS = [
+  { icon: FileText, end: 18, suffix: '편', label: '논문 게재 목표', detail: 'JCR 상위 10% 이내 SCI(E)급 (5년 누적)' },
+  { icon: Award, end: 20, suffix: '건', label: '특허 출원 목표', detail: '등록 목표 5건 (국내·국제 포함)' },
+  { icon: Users, end: 80, suffix: '명', label: '참여자 목표', detail: '의사과학자 16명 · 의과학자 64명 (누적)' },
+  { icon: GraduationCap, end: 12, suffix: '명', label: '전임교원 임용 목표', detail: 'MD-PhD 4명 · PhD 8명' },
+]
 
 const ROADMAP = [
   {
     phase: '1단계',
-    period: '1~2차년도',
+    period: '1~2차년도 (2026~2027)',
     color: 'from-navy',
     goals: [
-      '공동학위제 정착 및 1·2기 대학원생 선발',
-      'KUNIST 공동연구소 인프라 구축 완료',
-      '4대 Pillar 기반 공동연구 과제 착수',
-      '글로벌 석학 네트워크 초기 구축',
+      '공동학위 운영체계 구축 및 1·2기 참여자 모집 (20명 이상)',
+      'KUNIST 공동연구소 출범 및 핵심 인프라 구축',
+      '4대 Pillar 기반 Seed 연구 과제 착수 (누적 20건)',
+      '글로벌 석학 네트워크 초기 구축, 특허 출원 2건',
     ],
   },
   {
     phase: '2단계',
-    period: '3~5차년도',
+    period: '3~5차년도 (2028~2030)',
     color: 'from-brand-red',
     goals: [
-      '공동연구 성과의 논문·특허 본격 창출',
-      '기술이전·창업 등 사업화 성과 확산',
-      '국제 공동연구 및 글로벌 협력 강화',
-      '자립형 융합의학 연구·교육 모델 완성',
+      '참여자 누적 80명, 전임교원 12명 임용 완료',
+      '공동연구 과제 누적 60건 수행, 첨단 장비 가동률 60%',
+      'SCI(E) 상위 10% 논문 18편, 특허 출원 20건(등록 5건)',
+      '기술이전·창업 등 사업화 성과 확산 및 자립 운영체계 완성',
     ],
   },
 ]
 
 const ANNUAL = [
-  { label: '대학원생 선발 (목표 대비)', value: 92, target: 100 },
-  { label: '공동연구 과제 착수 (목표 대비)', value: 85, target: 100 },
-  { label: '논문 게재 실적 (목표 대비)', value: 78, target: 100 },
-  { label: '특허 출원 실적 (목표 대비)', value: 71, target: 100 },
-  { label: '기술이전·사업화 (목표 대비)', value: 64, target: 100 },
+  {
+    year: '1차년도 (2026)',
+    status: '진행중',
+    items: ['공동학위 운영체계·협약 체결', 'KUNIST 공동연구소 출범 준비', 'Pillar별 시범 과제 기획, 착수 6건'],
+  },
+  {
+    year: '2차년도 (2027)',
+    status: '예정',
+    items: ['신규 참여자 20명 모집', 'Seed 연구 15건 수행', '공동연구 누적 20건, 특허 출원 2건'],
+  },
+  {
+    year: '3차년도 (2028)',
+    status: '예정',
+    items: ['첨단 장비 가동률 50% 달성', '공동연구 누적 40건', 'SCI(E) 상위 10% 논문 4편, 특허 누적 6건'],
+  },
+  {
+    year: '4차년도 (2029)',
+    status: '예정',
+    items: ['공동연구 누적 50건', '논문 누적 10편, 특허 누적 13건', '기술이전 1건 이상 달성'],
+  },
+  {
+    year: '5차년도 (2030)',
+    status: '예정',
+    items: ['공동연구 누적 60건 완료', '논문 최종 18편, 특허 출원 누적 20건(등록 5건)', '장비 가동률 60%, 자립 운영체계 완성'],
+  },
 ]
 
-const COUNTS = [
-  { icon: FileText, end: 48, suffix: '편', label: '누적 논문 게재', detail: 'SCI(E)급 국제학술지 포함' },
-  { icon: Award, end: 23, suffix: '건', label: '누적 특허 출원', detail: '국내·국제 특허 포함' },
-  { icon: Users, end: 36, suffix: '명', label: '참여 대학원생', detail: '의사과학자·의과학자 과정' },
-  { icon: UserPlus, end: 12, suffix: '명', label: '신규 참여 연구자', detail: '당해년도 신규 임용·합류' },
-]
-
-const PERSONNEL = [
-  { label: '의사과학자(MD-PhD) 임용', value: 8, target: 12, unit: '명' },
-  { label: '의과학자(PhD) 임용', value: 15, target: 20, unit: '명' },
-  { label: '신규 참여 연구자', value: 12, target: 15, unit: '명' },
+const PERSONNEL_GOALS = [
+  { label: '의사과학자(MD-PhD) 전임교원', target: 4, unit: '명', detail: '2단계(3~5차년도) 중 임용' },
+  { label: '의과학자(PhD) 전임교원', target: 8, unit: '명', detail: '2단계(3~5차년도) 중 임용' },
+  { label: '5개년 신규 참여자 누적', target: 80, unit: '명', detail: '1단계 20명 + 2단계 60명' },
 ]
 
 export default function AchievementsPage() {
@@ -61,16 +82,21 @@ export default function AchievementsPage() {
     <>
       <PageHeader
         eyebrow="Achievements"
-        title="성과와 추진 현황"
-        description="K-MediST 사업단의 단계별 목표와 달성 현황, 연구 실적을 데이터로 투명하게 공개합니다."
+        title="성과 목표와 추진 로드맵"
+        description="K-MediST 사업단은 2026년 1차년도 사업을 시작했습니다. 아래는 2030년까지 5개년에 걸쳐 달성해 나갈 목표 지표와 단계별 추진 계획입니다."
       />
 
-      {/* Cumulative counts */}
+      {/* 5-year targets */}
       <section className="bg-background">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-3xl font-bold text-primary">누적 성과 지표</h2>
+          <div className="flex items-center justify-between gap-4">
+            <h2 className="font-serif text-3xl font-bold text-primary">5개년(2026~2030) 목표 지표</h2>
+          </div>
+          <p className="mt-3 text-sm text-muted-foreground">
+            아래 수치는 사업 종료 시점(2030년) 달성을 목표로 하는 지표이며, 현재까지의 달성 실적이 아닙니다.
+          </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {COUNTS.map((item) => {
+            {GOALS.map((item) => {
               const Icon = item.icon
               return (
                 <div key={item.label} className="rounded-2xl border border-border bg-card p-7">
@@ -95,10 +121,10 @@ export default function AchievementsPage() {
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Flag className="size-7 text-teal" />
-            <h2 className="font-serif text-3xl font-bold text-primary">성과지표 로드맵</h2>
+            <h2 className="font-serif text-3xl font-bold text-primary">단계별 추진 목표</h2>
           </div>
           <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
-            사업단은 2단계에 걸친 로드맵을 통해 단계적으로 목표를 달성해 나갑니다.
+            사업단은 2단계에 걸친 로드맵을 통해 단계적으로 목표를 달성해 나갈 계획입니다.
           </p>
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
             {ROADMAP.map((stage) => (
@@ -124,40 +150,67 @@ export default function AchievementsPage() {
         </div>
       </section>
 
-      {/* Annual progress */}
+      {/* Annual roadmap (no fabricated progress %) */}
       <section className="bg-background">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <h2 className="font-serif text-3xl font-bold text-primary">연차별 추진 현황</h2>
-          <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
-            당해년도 주요 목표 대비 달성률입니다. 스크롤 시 실제 진행률이 시각화됩니다.
-          </p>
-          <div className="mt-10 grid gap-8 rounded-3xl border border-border bg-card p-8 sm:p-10 lg:grid-cols-2 lg:gap-x-16">
-            {ANNUAL.map((item) => (
-              <ProgressBar key={item.label} label={item.label} value={item.value} target={item.target} unit="%" />
-            ))}
+          <div className="flex items-center gap-3">
+            <CalendarClock className="size-7 text-teal" />
+            <h2 className="font-serif text-3xl font-bold text-primary">연차별 핵심 목표</h2>
           </div>
+          <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
+            연차별 주요 추진 계획입니다. 1차년도(2026년)는 현재 진행 중이며, 이후 연차는 계획서 상의 예정 목표입니다.
+          </p>
+          <ol className="mt-12 space-y-8 border-l-2 border-border pl-8">
+            {ANNUAL.map((row) => (
+              <li key={row.year} className="relative">
+                <span
+                  className={`absolute -left-[41px] flex size-5 items-center justify-center rounded-full border-4 border-background ${
+                    row.status === '진행중' ? 'bg-gradient-brand' : 'bg-border'
+                  }`}
+                />
+                <div className="flex flex-wrap items-baseline gap-3">
+                  <span className="font-serif text-xl font-bold text-primary">{row.year}</span>
+                  <span
+                    className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                      row.status === '진행중' ? 'bg-gradient-brand text-primary-foreground' : 'bg-secondary text-teal'
+                    }`}
+                  >
+                    {row.status}
+                  </span>
+                </div>
+                <ul className="mt-3 space-y-1.5">
+                  {row.items.map((item) => (
+                    <li key={item} className="text-sm leading-relaxed text-muted-foreground">
+                      · {item}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* Personnel */}
+      {/* Personnel goals (targets only, no fabricated current count) */}
       <section className="bg-secondary/40">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Users className="size-7 text-teal" />
-            <h2 className="font-serif text-3xl font-bold text-primary">참여인력 현황</h2>
+            <h2 className="font-serif text-3xl font-bold text-primary">교원 임용 목표</h2>
           </div>
           <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
-            의사과학자·의과학자 임용 및 신규 참여자 현황을 목표 대비로 나타냅니다.
+            2단계(3~5차년도) 기간 중 4개 중점 연구분야에 전략적으로 배치될 전임교원 임용 목표입니다.
           </p>
-          <div className="mt-10 grid gap-8 rounded-3xl border border-border bg-card p-8 sm:p-10 md:grid-cols-3 md:gap-x-12">
-            {PERSONNEL.map((item) => (
-              <ProgressBar
-                key={item.label}
-                label={item.label}
-                value={item.value}
-                target={item.target}
-                unit={item.unit}
-              />
+          <div className="mt-10 grid gap-6 rounded-3xl border border-border bg-card p-8 sm:p-10 md:grid-cols-3 md:gap-x-8">
+            {PERSONNEL_GOALS.map((item) => (
+              <div key={item.label} className="rounded-2xl bg-secondary/50 p-6 text-center">
+                <p className="font-serif text-3xl font-bold text-primary">
+                  {item.target}
+                  <span className="text-lg">{item.unit}</span>
+                </p>
+                <p className="mt-2 text-sm font-semibold text-primary">{item.label}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{item.detail}</p>
+              </div>
             ))}
           </div>
         </div>
