@@ -14,15 +14,30 @@ type Notice = {
   pinned?: boolean
 }
 
+// TODO: 아래는 실제 공지사항이 아닌 예시(placeholder) 게시물입니다.
+// 실제 공지·모집공고·결과안내가 발생하는 대로 이 배열을 실제 내용으로 교체해주세요.
 const NOTICES: Notice[] = [
-  { category: '모집공고', title: '2026학년도 전기 K-MediST 공동학위과정 대학원생 모집 공고', date: '2026.03.15', pinned: true },
-  { category: '공지사항', title: 'KUNIST 공동연구소 공용장비 이용 신청 안내', date: '2026.03.10' },
-  { category: '공지사항', title: '2026년 글로벌 석학 초청 세미나 시리즈 일정 안내', date: '2026.03.02' },
-  { category: '결과안내', title: '2025학년도 후기 대학원생 선발 최종 합격자 발표', date: '2025.10.28' },
-  { category: '모집공고', title: '2025학년도 후기 공동학위과정 대학원생 모집 공고', date: '2025.09.01' },
-  { category: '공지사항', title: 'K-MediST 연구윤리 교육 이수 안내', date: '2025.08.20' },
-  { category: '결과안내', title: '2025년 상반기 공동연구 과제 선정 결과 안내', date: '2025.07.15' },
-  { category: '공지사항', title: '기술사업화 지원 프로그램 참가자 모집', date: '2025.06.30' },
+  {
+    category: '공지사항',
+    title: 'K-MediST(KUNIST) 사업단 공식 홈페이지 오픈 안내',
+    date: '2026.08',
+    pinned: true,
+  },
+  {
+    category: '공지사항',
+    title: '고려대학교-UNIST 미래 국가전략기술 공동연구 MOU 체결',
+    date: '2025.05.09',
+  },
+  {
+    category: '공지사항',
+    title: 'KUNIST 공동학위운영위원회·교육과정혁신위원회 구성 예정 안내',
+    date: '2026 (예정)',
+  },
+  {
+    category: '모집공고',
+    title: '공동학위과정 1기 대학원생 모집 공고 (예정)',
+    date: '추후 공지',
+  },
 ]
 
 const CATEGORIES: Category[] = ['전체', '공지사항', '모집공고', '결과안내']
