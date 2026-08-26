@@ -57,8 +57,8 @@ export const PILLARS: Pillar[] = [
 export const HOME_STATS = [
   { value: '2', suffix: '개', label: '참여기관', detail: '고려대 의대 · UNIST' },
   { value: '4', suffix: '대', label: '연구 Pillar', detail: '융합 연구 분야' },
-  { value: '40', suffix: '명+', label: '목표 참여 인력', detail: '의사과학자·의과학자' },
-  { value: '5', suffix: '년', label: '사업 기간', detail: '2단계 로드맵' },
+  { value: '80', suffix: '명', label: '5개년 참여자 목표', detail: '의사과학자 16 · 의과학자 64(누적)' },
+  { value: '5', suffix: '년', label: '사업 기간', detail: '2026~2030년 (1단계 2년 + 2단계 3년)' },
 ]
 
 export type FaqItem = { q: string; a: string }
