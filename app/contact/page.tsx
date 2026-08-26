@@ -9,14 +9,16 @@ export const metadata: Metadata = {
     'K-MediST(KUNIST) 사업단 행정실 연락처와 오시는 길. 지원, 교육과정, 연구 협력에 관한 문의를 남겨주세요.',
 }
 
+// TODO: 아래 이메일·전화번호는 임시 값입니다. 실제 사업단 행정실 연락처로 교체해주세요.
+// (푸터의 연락처와 반드시 동일한 값으로 맞춰주세요: components/site-footer.tsx)
 const CONTACTS = [
   {
     icon: MapPin,
     label: '주소',
     value: '서울특별시 성북구 고려대로 73\n고려대학교 의과대학 정몽구 미래의학관 2층',
   },
-  { icon: Mail, label: '이메일', value: 'contact@kunist.ac.kr' },
-  { icon: Phone, label: '전화', value: '02-1234-5678' },
+  { icon: Mail, label: '이메일', value: 'kmedist@korea.ac.kr' },
+  { icon: Phone, label: '전화', value: '02-0000-0000' },
   { icon: Clock, label: '운영시간', value: '평일 09:00 – 18:00\n(주말·공휴일 휴무)' },
 ]
 
