@@ -45,9 +45,10 @@ export function SiteFooter() {
                 <MapPin className="mt-0.5 size-4 shrink-0 text-teal" />
                 <span>서울특별시 성북구 고려대로 73 고려대학교 의과대학 정몽구 미래의학관 2층 KUNIST 연구소</span>
               </li>
+              {/* TODO: 임시 전화번호입니다. app/contact/page.tsx의 값과 동일하게 실제 번호로 교체해주세요. */}
               <li className="flex items-center gap-2">
                 <Phone className="size-4 shrink-0 text-teal" />
-                <span>02-1234-5678</span>
+                <span>02-0000-0000</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="size-4 shrink-0 text-teal" />
